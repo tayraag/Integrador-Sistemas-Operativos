@@ -59,6 +59,7 @@ integrador/
 ├── memoria_10p.json
 ├── tanda.json
 └── TrabajoPracticoSO.pdf
+```
 
 ---
 
