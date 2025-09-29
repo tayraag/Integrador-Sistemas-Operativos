@@ -60,25 +60,23 @@ integrador/
 ├── tanda.json
 └── TrabajoPracticoSO.pdf
 ```
-
 ---
 
 ## 🚀 Uso
--Abre index.html en tu navegador.
--Carga un archivo de procesos válido (.json o .txt).
--Configura los parámetros de simulación según tus necesidades.
--Selecciona la estrategia de asignación y ejecuta la simulación.
--Visualiza los resultados, la memoria en tiempo real y descarga los reportes si lo deseas.
+- Abre `index.html` en tu navegador.
+- Carga un archivo de procesos válido (`.json` o `.txt`).
+- Configura los parámetros de simulación según tus necesidades.
+- Selecciona la estrategia de asignación y ejecuta la simulación.
+- Visualiza los resultados, la memoria en tiempo real y descarga los reportes si lo deseas.
 
 ---
 
-##📋 Requisitos
--Navegador web moderno (Chrome, Firefox, Edge, etc.).
--✅ No requiere instalación de dependencias externas.
+## 📋 Requisitos
+- Navegador web moderno (Chrome, Firefox, Edge, etc.).
+- ✅ No requiere instalación de dependencias externas.
 
 ---
 
-##👩‍💻 Créditos
-
--Trabajo realizado por Tayra Aguila
--📚 Materia: Sistemas Operativos
+## 👩‍💻 Créditos
+- Trabajo realizado por Tayra Aguila
+- 📚 Materia: Sistemas Operativos
