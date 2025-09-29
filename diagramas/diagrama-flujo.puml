@@ -1,0 +1,38 @@
+@startuml DiagramaFlujo
+
+title Diagrama de Flujo - Simulador de Memoria
+
+start
+
+:Leer procesos desde archivo JSON;
+:Configurar memoria y parámetros (tamaño, estrategia, tiempos);
+
+repeat
+  :Avanzar tiempo t;
+  :Verificar procesos que llegan en t;
+
+  repeat
+    :Seleccionar partición según estrategia;
+    :Consumir tiempo de selección de partición;
+    if (¿Hay partición libre suficiente?) then (Sí)
+      :Asignar partición;
+      :Consumir tiempo de carga;
+      :Ejecutar proceso (decrementar duración);
+      :Agregar eventos de log;
+      :Liberar partición si proceso finaliza;
+      :Consumir tiempo de liberación;
+      :Actualizar fragmentación externa;
+      :Unificar particiones libres;
+    else (No)
+      :Proceso sigue en espera;
+      :Agregar evento "No hay espacio";
+    endif
+  repeat while (quedan procesos pendientes de asignación en t)
+
+repeat while (quedan procesos pendientes o en ejecución)
+
+:Calcular métricas finales (T. Retorno, TMR, Frag. Externa);
+:Generar archivo de eventos + tabla particiones;
+
+stop
+@enduml

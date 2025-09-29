@@ -1,0 +1,38 @@
+@startuml DiagramaArquitectura
+
+title Diagrama de Componentes - Implementación del Simulador
+
+package "UI & Control" <<Frame>> {
+  component Main as "main.js"
+  component UI as "ui.js"
+  component Descarga as "descarga.js"
+  component Validacion as "validacion.js"
+}
+
+package "Lógica de Simulación" <<Cloud>> {
+  component Simulador as "contigua.js"
+  component GestorMemoria as "memoria.js"
+  component Estrategias as "algoritmos.js"
+}
+
+package "Estructura de Memoria" <<Bloques>> {
+  component Proceso
+  component Bloque
+}
+
+Simulador ..> GestorMemoria : usa\n(asignarBloque, liberarProceso)
+Simulador ..> Estrategias : usa\n(buscarIndiceBloque)
+Simulador ..> Proceso
+Simulador ..> Bloque
+GestorMemoria ..> Bloque
+
+Simulador ..> UI : usa\n(agregarEventoLog)
+Simulador ..> Descarga : usa\n(logConfiguracionInicial, logEstadoParticiones)
+Descarga ..> UI : usa\n(agregarEventoLog)
+
+Main ..> Simulador : invoca\n(simularDinamica)
+Main ..> UI
+Main ..> Descarga
+Main ..> Validacion
+
+@enduml

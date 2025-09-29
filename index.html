@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header class="site-header">
+        <h1>TP Integrador — Administración de Memoria</h1>
+    </header>
+
+    <section class="cargaArchivo card">
+        <h2>Deberá cargar un archivo:</h2>
+        <div class="file-input-container">
+            <input type="file" id="file" name="file" accept=".json, .txt" autocomplete="off" />
+            <button id="puedeSeguir" disabled>Cargar archivo válido primero</button>
+        </div>
+        <div id="feedback" class="file-status"></div>
+    </section>
+
+    <div class="container" id="main-container" style="display: none;">
+        <div class="left-column">
+            <section id="simulador" class="card">
+                <h3>Configuración de la Simulación</h3>
+                <div class="controls">
+                    <div class="control-group">
+                        <label for="totalMemory">Total memoria (K):</label>
+                        <input id="totalMemory" type="number" value="700" min="1" max="10000" />
+                    </div>
+                    <div class="control-group">
+                        <label for="memoria-so">Memoria reservada SO (K):</label>
+                        <input id="memoria-so" type="number" value="200" min="1">
+                    </div>
+                    <div class="control-group">
+                        <label for="partitionSelectionTime">Tiempo de selección de partición (ms):</label>
+                        <input id="partitionSelectionTime" type="number" value="1" min="0" />
+                    </div>
+                    <div class="control-group">
+                        <label for="averageLoadTime">Tiempo de carga promedio (ms):</label>
+                        <input id="averageLoadTime" type="number" value="1" min="0" />
+                    </div>
+                    <div class="control-group">
+                        <label for="partitionReleaseTime">Tiempo de liberación de partición (ms):</label>
+                        <input id="partitionReleaseTime" type="number" value="1" min="0" />
+                    </div>
+                </div>
+                <div class="strategy-section">
+                    <div class="io">
+                        <div>
+                            <label for="strategy-select">Elija la estrategia:</label>
+                            <select id="strategy-select">
+                                <option data-strategy="">-- Seleccione una estrategia --</option>
+                                <option data-strategy="first">First Fit</option>
+                                <option data-strategy="next">Next Fit</option>
+                                <option data-strategy="best">Best Fit</option>
+                                <option data-strategy="worst">Worst Fit</option>
+                            </select>
+                        </div>
+                        <div>
+                            <button id="runSimulation">Ejecutar Simulación</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card">
+                <h3>Tabla de procesos</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Proceso</th>
+                            <th>Memoria</th>
+                            <th>Duración</th>
+                            <th>Tiempo de arribo</th>
+                            <th>Inicio</th>
+                            <th>Fin</th>
+                            <th>Retorno</th>
+                        </tr>
+                    </thead>
+                    <tbody id="jobsTable"></tbody>
+                </table>
+            </section>
+
+            <section class="download-section card">
+                <h3>Descargar archivo de la simulación:</h3>
+                <div class="download-controls">
+                    <select id="formato">
+                        <option value="">-- Seleccione formato --</option>
+                        <option value="txt">TXT</option>
+                        <option value="json">JSON</option>
+                        <option value="pdf">PDF</option>
+                    </select>
+                    <button id="btnDescargar">Descargar</button>
+                </div>
+            </section>
+        </div>
+
+        <div class="right-column">
+            <section id="output" class="card">
+                <div id="stats"></div>
+            </section>
+
+            <section id="eventLog" class="card">
+                <h3>Simulación paso a paso:</h3>
+                <ul id="logContainer" class="log-list"></ul>
+            </section>
+        </div>
+    </div>
+    <section class="memory-visualization-container" id="memory-visualization" style="display: none;">
+        <canvas id="memCanvas" width="1200" height="1000"></canvas>
+    </section>
+
+    <footer class="site-footer">
+        <p>Sistemas Operativos - 2025 - UNTDF</p>
+        <p>Tayra Aguila</p>
+
+        <a href="https://github.com/tayraag/Integrador-Sistemas-Operativos" target="_blank" class="github-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+                aria-hidden="true">
+                <path
+                    d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.6-3.9-1.6-.5-1.3-1.2-1.7-1.2-1.7-1-.7.1-.7.1-.7 1.1.1 1.6 1.1 1.6 1.1 1 .1 1.7.8 1.7.8.9 1.6 2.4 1.1 3 .8.1-.7.4-1.1.7-1.4-2.6-.3-5.4-1.3-5.4-5.7 0-1.2.4-2.2 1.1-3-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 1.1.9-.2 1.9-.3 2.9-.3s2 .1 2.9.3c2.1-1.4 3-1.1 3-1.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.8 1.1 3 0 4.4-2.8 5.4-5.4 5.7.4.3.8 1 .8 2v3c0 .3.2.6.8.5C20.7 21.4 24 17.1 24 12c0-6.35-5.15-11.5-12-11.5z" />
+            </svg>
+            <span>Ver en GitHub</span>
+        </a>
+    </footer>
+    <script type="module" src="scripts/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+</body>
+
+</html>

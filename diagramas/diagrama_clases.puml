@@ -1,0 +1,72 @@
+@startuml DiagramaClasesActualizado
+title Diagrama de Clases - Simulador de Memoria SO
+
+!theme vibrant
+
+class Proceso {
+  - nombre : String
+  - tiempo_arribo : int
+  - duracion : int
+  - memoria_requerida : int
+  - base : int
+  - idx : int
+  - estado : String  <<esperando/ejecutando/terminado>>
+  - tiempoInicio : int
+  - tiempoFin : int
+  - retorno : int
+}
+
+class Particion {
+  - start : int
+  - size : int
+  - free : boolean
+  - procesoIdx : int
+  - esSO : boolean
+  + estaLibre() : boolean
+}
+
+class Memoria {
+  - bloques : List<Particion>
+  - posicionNextFit : int
+  + asignar(proceso : Proceso, estrategia : Estrategia) : boolean
+  + liberar(procesoIdx : int) : void
+  + actualizarEstados() : void
+}
+
+interface Estrategia {
+  + buscar(bloques : List<Particion>, tamaño : int, posicionNextFit : int) : int
+}
+
+class FirstFit implements Estrategia
+class BestFit implements Estrategia
+class WorstFit implements Estrategia
+class NextFit implements Estrategia
+
+class Simulador {
+  - procesos : List<Proceso>
+  - esperando : List<Proceso>
+  - ejecutando : List<Proceso>
+  - procesosCompletadosPendientes : List<String>
+  - memoria : Memoria
+  - tiempo : int
+  - fragExterna : int
+  - tiempoTotalSeleccion : int
+  - tiempoTotalCarga : int
+  - tiempoTotalLiberacion : int
+  - retornos : List<Object>
+  + ejecutar() : Object
+  + registrarEvento(evento : String) : void
+}
+
+' Relaciones
+Memoria "1" *-- "*" Particion : contiene
+Memoria ..> Estrategia : usa
+Simulador "1" -- "1" Memoria : usa
+Simulador "1" -- "*" Proceso : gestiona
+
+Estrategia <|.. FirstFit
+Estrategia <|.. BestFit
+Estrategia <|.. WorstFit
+Estrategia <|.. NextFit
+
+@enduml

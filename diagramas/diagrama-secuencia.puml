@@ -1,0 +1,53 @@
+@startuml DiagramaSecuenciaActualizado
+title Secuencia: Simulación Dinámica de Memoria con Estrategias
+
+actor Usuario 
+participant "Simulador" as Sim #lightblue
+participant "Archivo de Tanda" as Archivo #lightgreen
+participant "Memoria Principal" as Memoria #pink
+participant "Particiones" as Particion #yellow
+participant "Estrategia" as Estrategia #violet
+
+Usuario -> Sim: Iniciar simulador
+Sim -> Usuario: Solicitar archivo JSON
+Usuario -> Archivo: Proveer archivo JSON de trabajos
+Sim -> Archivo: Leer y parsear trabajos
+Archivo --> Sim: Lista de procesos
+
+Sim -> Usuario: Solicitar parámetros (memoria, estrategia, tiempos)
+Usuario --> Sim: Valores de entrada
+Sim -> Memoria: Inicializar bloques de memoria
+
+loop Simulación por unidad de tiempo
+    Sim -> Memoria: Verificar procesos en espera
+    alt Hay proceso listo para cargar
+        Sim -> Memoria: Solicitar partición disponible
+        Memoria -> Estrategia: buscarParticion(memoriaRequerida, bloques, posicionNextFit)
+        Estrategia --> Memoria: indiceParticion
+        Memoria --> Sim: Partición seleccionada / ninguna
+
+        alt Partición disponible
+            Sim -> Memoria: Cargar proceso en partición
+            Memoria -> Particion: Actualizar estado (ocupado)
+            Particion --> Memoria: Confirmación
+            Memoria --> Sim: Proceso cargado
+            Sim -> Sim: Registrar evento y actualizar métricas
+        else No hay partición disponible
+            Sim -> Sim: Registrar evento de espera
+        end
+    end
+
+    Sim -> Memoria: Avanzar ejecución de procesos
+    Memoria --> Sim: Procesos terminados
+
+    alt Procesos terminados
+        Sim -> Memoria: Liberar particiones
+        Memoria -> Particion: Actualizar estado (libre)
+        Particion --> Memoria: Confirmación
+        Memoria --> Sim: Particiones liberadas
+        Sim -> Sim: Registrar evento y actualizar métricas
+    end
+end
+
+Sim -> Usuario: Mostrar resultados finales (tiempos de retorno, fragmentación)
+@enduml
