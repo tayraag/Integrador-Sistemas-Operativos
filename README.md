@@ -60,10 +60,10 @@ integrador/
 ├── tanda.json
 └── TrabajoPracticoSO.pdf
 ```
----
 
+---
 ## 🚀 Uso
-- Abre `index.html` en tu navegador.
+- Abre `index.html` en tu navegador (si descargaste el proyecto) **o** usa el simulador directamente en línea [aquí](https://tayraag.github.io/Integrador-Sistemas-Operativos/).
 - Carga un archivo de procesos válido (`.json` o `.txt`).
 - Configura los parámetros de simulación según tus necesidades.
 - Selecciona la estrategia de asignación y ejecuta la simulación.
@@ -74,6 +74,12 @@ integrador/
 ## 📋 Requisitos
 - Navegador web moderno (Chrome, Firefox, Edge, etc.).
 - ✅ No requiere instalación de dependencias externas.
+
+---
+
+## 🌐 GitHub Pages
+- Esta página está publicada en GitHub Pages y se actualiza automáticamente al hacer push a la rama configurada.
+- URL del simulador en línea:https://tayraag.github.io/Integrador-Sistemas-Operativos/
 
 ---
 
