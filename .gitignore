@@ -1,0 +1,55 @@
+# ---- Archivos del sistema ----
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# ---- Configuración de IDEs ----
+.vscode/
+.idea/
+*.iml
+*.ipr
+*.iws
+*.classpath
+*.project
+.settings/
+
+# ---- Archivos de compilación Java ----
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+
+# ---- Directorios de build ----
+bin/
+build/
+out/
+dist/
+target/
+
+# ---- Archivos temporales ----
+*.log
+*.tmp
+*.swp
+
+# ---- Dependencias Node ----
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+.pnpm-debug.log*
+
+# ---- Archivos de entorno ----
+*.env
+*.local
+
+# ---- Archivos de backup ----
+*~
+*.bak
+*.old
+
+# ---- Archivos web ----
+*.map           # Source maps

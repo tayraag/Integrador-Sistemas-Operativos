@@ -1,19 +1,42 @@
-TP Integrador - Administración de Memoria
-Descripción
-Este proyecto es un simulador interactivo de administración de memoria para sistemas operativos, desarrollado como trabajo práctico integrador. Permite cargar procesos desde archivos, configurar parámetros de simulación y visualizar la asignación dinámica de memoria utilizando diferentes estrategias.
+# 🖥️ TP Integrador – Administración de Memoria  
 
-Funcionalidades principales
-Carga de procesos desde archivos .json o .txt con validación automática.
-Configuración de simulación: tamaño total de memoria, memoria reservada para el sistema operativo, tiempos de selección/carga/liberación de partición y estrategia de asignación.
-Estrategias de asignación: First Fit, Next Fit, Best Fit y Worst Fit.
-Simulación paso a paso con registro de eventos y visualización de la memoria en tiempo real.
-Cálculo de métricas: turnaround (retorno), fragmentación externa, tiempos acumulados.
-Visualización gráfica de la memoria y resultados en tabla.
-Descarga de resultados en formatos TXT, JSON y PDF.
-Diagramas de clases, arquitectura, flujo y secuencia incluidos para documentación.
+![Status](https://img.shields.io/badge/status-completed-brightgreen)
+![Made with](https://img.shields.io/badge/made%20with-JavaScript-yellow)
+![License](https://img.shields.io/badge/license-MIT-blue)
+![Platform](https://img.shields.io/badge/platform-Web-lightgrey)
 
+## 📌 Descripción  
+Este proyecto es un **simulador interactivo de administración de memoria** para sistemas operativos, desarrollado como **Trabajo Práctico Integrador**.  
+Permite cargar procesos desde archivos, configurar parámetros de simulación y visualizar la **asignación dinámica de memoria** utilizando diferentes estrategias.  
 
-Estructura del proyecto
+---
+
+## ✨ Funcionalidades principales  
+- 📂 **Carga de procesos** desde archivos `.json` o `.txt` con validación automática.  
+- ⚙️ **Configuración de simulación**:  
+  - Tamaño total de memoria.  
+  - Memoria reservada para el sistema operativo.  
+  - Tiempos de selección / carga / liberación de partición.  
+  - Estrategia de asignación.  
+- 🧩 **Estrategias de asignación implementadas**:  
+  - First Fit.  
+  - Next Fit.  
+  - Best Fit.  
+  - Worst Fit.  
+- ▶️ **Simulación paso a paso** con registro de eventos y visualización en tiempo real.  
+- 📊 **Cálculo de métricas**:  
+  - Turnaround (tiempo de retorno).  
+  - Fragmentación externa.  
+  - Tiempos acumulados.  
+- 🖼️ **Visualización gráfica** de la memoria y resultados en tabla.  
+- 💾 **Exportación de resultados** en formatos: TXT, JSON y PDF.  
+- 📑 **Documentación adicional**: diagramas de clases, arquitectura, flujo y secuencia.  
+
+---
+
+## 📂 Estructura del proyecto  
+
+```plaintext
 integrador/
 ├── index.html
 ├── style.css
@@ -37,17 +60,3 @@ integrador/
 ├── memoria_10p.json
 ├── tanda.json
 └── TrabajoPracticoSO.pdf
-
-Uso
-Abre link en tu navegador.
-Carga un archivo de procesos válido (.json o .txt).
-Configura los parámetros de simulación según tus necesidades.
-Selecciona la estrategia de asignación y ejecuta la simulación.
-Visualiza los resultados, la memoria y descarga los resultados si lo deseas.
-
-Requisitos
-Navegador web moderno (Chrome, Firefox, Edge, etc.).
-No requiere instalación de dependencias externas.
-
-Créditos
-Trabajo realizado por Tayra Aguila para la materia Sistemas Operativos.
