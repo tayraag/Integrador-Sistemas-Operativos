@@ -1,9 +1,8 @@
 # 🖥️ TP Integrador – Administración de Memoria  
 
-![Status](https://img.shields.io/badge/status-completed-brightgreen)
-![Made with](https://img.shields.io/badge/made%20with-JavaScript-yellow)
-![License](https://img.shields.io/badge/license-MIT-blue)
-![Platform](https://img.shields.io/badge/platform-Web-lightgrey)
+![Estado](https://img.shields.io/badge/status-completed-brightgreen)
+![Hecho en](https://img.shields.io/badge/made%20with-JavaScript-yellow)
+![Plataforma](https://img.shields.io/badge/platform-Web-lightgrey)
 
 ## 📌 Descripción  
 Este proyecto es un **simulador interactivo de administración de memoria** para sistemas operativos, desarrollado como **Trabajo Práctico Integrador**.  
@@ -60,3 +59,25 @@ integrador/
 ├── memoria_10p.json
 ├── tanda.json
 └── TrabajoPracticoSO.pdf
+
+---
+
+## 🚀 Uso
+-Abre index.html en tu navegador.
+-Carga un archivo de procesos válido (.json o .txt).
+-Configura los parámetros de simulación según tus necesidades.
+-Selecciona la estrategia de asignación y ejecuta la simulación.
+-Visualiza los resultados, la memoria en tiempo real y descarga los reportes si lo deseas.
+
+---
+
+##📋 Requisitos
+-Navegador web moderno (Chrome, Firefox, Edge, etc.).
+-✅ No requiere instalación de dependencias externas.
+
+---
+
+##👩‍💻 Créditos
+
+-Trabajo realizado por Tayra Aguila
+-📚 Materia: Sistemas Operativos
